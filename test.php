@@ -1,4 +1,0 @@
-<?php
-dededeeded
-ddd
- ?>
