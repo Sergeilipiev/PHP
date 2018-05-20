@@ -1,43 +1,55 @@
 <?php
-//list task
-//Дан массив:
-//$data = [
-//        [1, 'qwe', 'оплатил', 'первый менеджер'],
-//        [2, 'asd', 'не оплатил', 'первый менеджер'],
-//        [3, 'zxc', 'частично оплатил', 'второй менеджер'],
-//        [4, 'fgh', 'оплатил', 'третий менеджер'],
-//    ];
-//
-//Вывести информацию в таблицу "Заказчики", со следующими столбцами:
-//ID Имя пользователя Статус оплаты Менеджер
-//Использовать альтернативный синтаксис for
-
-$data = [
-        [1, 'qwe', 'оплатил', 'первый менеджер'],
-        [2, 'asd', 'не оплатил', 'первый менеджер'],
-        [3, 'zxc', 'частично оплатил', 'второй менеджер'],
-        [4, 'fgh', 'оплатил', 'третий менеджер'],
-    ];
-
-?>
-<table>
-    <caption>Заказчики</caption>
-    <tr>
-        <th>ID</th><th>Имя пользователя</th><th>Статус оплаты</th><th>Менеджер</th>
-    </tr>
-    <?php foreach ($data as list($a, $b, $c ,$d)): ?>
-    <tr>
-        <td><?php echo $a?></td>
-        <td><?php echo $b?></td>
-        <td><?php echo $c?></td>
-        <td><?php echo $d?></td>
-    </tr>
-    <?php endforeach?>
-</table>
-<?php
-/**
- * Created by PhpStorm.
- * User: Hall
- * Date: 29.04.2018
- * Time: 23:24
- */
+//5. Дан массив $fruits.
+//Каждому вложенному массиву добавить count - количество элементов в массиве (элементы с одинаковым name)
+//Удалить дублирующиеся элементы
+echo("<br><br>");
+$fruits = [
+    [
+        "name"=> "apple",
+        "color"=> "red"
+    ],
+    [
+        "name"=> "orange",
+        "color"=> "orange"
+    ],
+    [
+        "name"=> "lemon",
+        "color"=> "yellow"
+    ],
+    [
+        "name"=> "apple",
+        "color"=> "green"
+    ],
+    [
+        "name"=> "plum",
+        "color"=> "violet"
+    ],
+    [
+        "name"=> "plum",
+        "color"=> "violet"
+    ],
+    [
+        "name"=> "apple",
+        "color"=> "red"
+    ],
+    [
+        "name"=> "lemon",
+        "color"=> "yellow"
+    ],
+    [
+        "name"=> "banana",
+        "color"=> "yellow"
+    ]
+];
+for ($i=0; $i < count($fruits); $i++) {
+    $fruits[$i]['count'] = 1;
+    for ($j = count($fruits) - 1; $j > $i; $j--) {
+        if ($fruits[$i]['name'] == $fruits[$j]['name']) {
+            $fruits[$i]['count'] += 1;
+        }
+        if ($fruits[$i]['name'] == $fruits[$j]['name'] && $fruits[$i]['color'] == $fruits[$j]['color']){
+            array_splice($fruits, $j, 1);
+        }
+    }
+}
+var_dump($fruits);

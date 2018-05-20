@@ -1,23 +1,27 @@
 <?php
-//arrays task
-//Дано
-//$arr = [3, 1, 6, 0, 4, 5]
-//
-//С помощью цикла foreach найти сумму квадратов элементов этого массива
-//Увеличить значение каждого элемента на 1
-$sum = 0;
-$arr = [3, 1, 6, 0, 4, 5];
-foreach ($arr as &$val) {
-    $sum+=$val**2;
-    $val++;
-}
-unset($val);
-echo $sum.'<pre>';
-print_r($arr);
-
-/**
- * Created by PhpStorm.
- * User: Hall
- * Date: 29.04.2018
- * Time: 23:16
- */
+//Отсортировать массив по 'price'
+$arr = [
+    '1'=> [
+        'price' => 10,
+        'count' => 2
+    ],
+    '2'=> [
+        'price' => 5,
+        'count' => 5
+    ],
+    '3'=> [
+        'price' => 8,
+        'count' => 5
+    ],
+    '4'=> [
+        'price' => 12,
+        'count' => 4
+    ],
+    '5'=> [
+        'price' => 8,
+        'count' => 4
+    ],
+];
+asort($arr);
+var_dump ($arr);
+echo"<br>";
